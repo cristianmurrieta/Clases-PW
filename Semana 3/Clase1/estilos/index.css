@@ -1,0 +1,40 @@
+body {
+
+    background-color: darkorange;
+}
+
+/* ID */
+
+#parrafo1 {
+    color: peru;
+    background-color: rgb(234, 19, 23);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+}
+
+/* Clases */
+
+.letra_azul {
+    color: blueviolet;
+}
+
+.fondo_celeste {
+    background-color: aqua;
+    color: crimson;
+    opacity: 0.5;
+}
+
+.bordes {
+    border: medium solid;
+}
+
+#link:hover {
+    color: white;
+}
+
+#link:visited {
+    color: brown;
+}
+#parrafo1::first-line {
+    text-transform: uppercase;
+}
