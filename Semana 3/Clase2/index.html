@@ -7,8 +7,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </head>
     <body class="container">
+        <!--cabecera y menu navegacion-->
         <div>
-            <!--cabecera y menu navegacion-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <a href="#" class="navbar-brand">CS-UL</a>
@@ -39,68 +39,81 @@
         </div>
 
 
+        <!--Banner-->
         <div>
-            <!--Banner-->
-            <img src="/Semana 3/Clase2/imagenes/csgo.jpg">
+            <img class="img-fluid" src="/Semana 3/Clase2/imagenes/csgo.jpg">
         </div>
-        <div>
-            <!--Secciones secundarias-->
-            <div>
-                <h3>Eventos Abiertos</h3>
-                <div>
-                    CS Peru 2021
-                </div>
-                <div>
-                    CS Peru 2021
-                </div>
-                <div>
-                    CS Peru 2021
-                </div>
-                <div>
-                    CS Peru 2021
+        <!--Secciones secundarias-->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <h3 class="card-header">Eventos Abiertos</h3>
+                    <div class="card-body">
+                        <div>
+                            CS Peru 2021
+                        </div>
+                        <div>
+                            CS Peru 2021
+                        </div>
+                        <div>
+                            CS Peru 2021
+                        </div>
+                        <div>
+                            CS Peru 2021
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <h3>Top Players</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Player</th>
-                            <th>Maps</th>
-                            <th>Round</th>
-                            <th>K-D Diff</th>
-                            <th>K/D</th>
-                            <th>Rating</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
+            <div class="col">
+                <div class="card">
+                    <h3 class="card-header">Top Players</h3>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Player</th>
+                                    <th>Maps</th>
+                                    <th>Round</th>
+                                    <th>K-D</th>
+                                    <th>K/D</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <di>
-                <h3>Registra tu equipo</h3>
-                <form>
-                    <div>
-                        <label>Correo</label>
-                        <input type="text"/>
+            <div class="col">
+                <div class="card">
+                    <h3 class="card-header">Registra tu equipo</h3>
+                    <div class="card-body">
+                        <form>
+                            <div>
+                                <label>Correo</label>
+                                <input type="text"/>
+                            </div>
+                            <div>
+                                <label>Password</label>
+                                <input type="text"/>
+                            </div>
+                            <div>
+                                <label>Nombre</label>
+                                <input type="text"/>
+                            </div>
+                            <button type="button">Registrar</button>
+                        </form>
                     </div>
-                    <div>
-                        <label>Password</label>
-                        <input type="text"/>
-                    </div>
-                    <div>
-                        <label>Nombre</label>
-                        <input type="text"/>
-                    </div>
-                    <button type="button">Registrar</button>
-                </form>
-            </di>
+                </div>
+            </div>
         </div>
-        <div>
-            <!--footer-->
-            Universidad de Lima - Programacion Web 2021-2
+        <!--footer-->
+        <div class="card"> 
+            <div class="card-body">
+                Universidad de Lima - Programacion Web 2021-2
+            </div>
         </div>
-
     </body>
 </html>
