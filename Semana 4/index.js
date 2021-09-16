@@ -71,7 +71,8 @@ const main = () => {
 
     for(var i=0; i<10; i++){
         const but = document.getElementById("but"+i)
-        but.onclick = numeroOnClickNoObstrusivo;
+        //but.onclick = numeroOnClickNoObstrusivo;
+        but.addEventListener("click", numeroOnClickNoObstrusivo)
     }
     const arrOperaciones = ["+", "-", "c", "="]
     for (var op of arrOperaciones){
@@ -80,4 +81,11 @@ const main = () => {
     }
 }
 
-main();
+const main2 = () => {
+    console.log("Segunda parte del main")
+}
+
+//window.onload = main;
+
+window.addEventListener("load", main);
+window.addEventListener("load", main2);
