@@ -32,6 +32,12 @@ const numeroOnClick = (numero) => {
     }
 }
 
+const numeroOnClickNoObstrusivo = (evt) => {
+    const but = evt.target;
+    const numero = but.innerHTML;
+    numeroOnClick(numero)
+}
+
 const operacionOnClick = (operacion) => {
     const inputNumeros = document.getElementById("txt_numeros")
     if(operacion == "c"){
@@ -54,3 +60,24 @@ const operacionOnClick = (operacion) => {
         }
     }
 }
+
+const operacionOnClickNoObstrusivo = (evt) => {
+    const but = evt.target;
+    const op = but.innerHTML;
+    operacionOnClick(op)
+}
+
+const main = () => {
+
+    for(var i=0; i<10; i++){
+        const but = document.getElementById("but"+i)
+        but.onclick = numeroOnClickNoObstrusivo;
+    }
+    const arrOperaciones = ["+", "-", "c", "="]
+    for (var op of arrOperaciones){
+        const but = document.getElementById("but"+ op)
+        but.onclick = operacionOnClickNoObstrusivo;
+    }
+}
+
+main();
