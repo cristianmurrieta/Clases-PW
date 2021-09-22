@@ -62,12 +62,106 @@ const operacionOnClick = (operacion) => {
 }
 
 const operacionOnClickNoObstrusivo = (evt) => {
+    console.log(this)
     const but = evt.target;
     const op = but.innerHTML;
     operacionOnClick(op)
 }
 
+/*const cambiarColorNumero5 = () =>{
+    const but5 = document.body.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild
+    const classes = but5.getAttribute("class")
+    but5.setAttribute("class", classes + " but_verde")
+}*/
+
+const crearInputNumeros = () =>{
+    var inputNumeros = document.createElement("input")
+    inputNumeros.setAttribute("id", "txt_numeros")
+    inputNumeros.setAttribute("class", "form-control mb-3")
+    inputNumeros.setAttribute("type", "text")
+    inputNumeros.setAttribute("value", "0")
+    return inputNumeros
+}
+
+const crearDivFilaBotones = (numFila) => {
+    var div = document.createElement("div")
+    div.setAttribute("class", "row mb-1")
+
+    for (var i=0; i<4; i++){
+        
+        var divCol = document.createElement("div")
+        divCol.setAttribute("class", "col")
+    
+        var etiqueta = ""
+        if(i == 3){
+            //Boton Operacion
+            switch (numFila){
+                case 7: etiqueta="+"
+                break;
+                case 4: etiqueta="-"
+                break;
+                case 1: etiqueta="*"
+                break;
+            }
+        }else{
+            etiqueta = (numFila + i)
+        }
+        var but = document.createElement("button")
+        but.setAttribute("id", "but" + etiqueta)
+        but.setAttribute("class", "btn btn-primary")
+        but.setAttribute("type", "button")
+        but.innerText = etiqueta
+        
+        divCol.appendChild(but)
+        div.appendChild(divCol)
+
+    }
+
+    return div;
+}
+
+const crearUltimaFila = () => {
+
+    const etiquetas = ["C", "0", "=", "/"]
+    var div = document.createElement("div")
+    div.setAttribute("class", "row mb-1")
+
+    for (etiqueta of etiquetas){
+        var divCol = document.createElement("div")
+        divCol.setAttribute("class", "col")
+    
+        var but = document.createElement("button")
+        but.setAttribute("id", "butC" + etiqueta)
+        but.setAttribute("class", "btn btn-primary")
+        but.setAttribute("type", "button")
+        but.innerText = etiqueta
+
+        divCol.appendChild(but)
+        div.appendChild(divCol)
+    }
+    return div;
+}
+
+const construirCalculadora = () => {
+    var inputNumeros = crearInputNumeros();
+    document.body.appendChild(inputNumeros);
+
+    var divFila = crearDivFilaBotones(7)
+    document.body.appendChild(divFila);
+
+    divFila = crearDivFilaBotones(4)
+    document.body.appendChild(divFila);
+
+    divFila = crearDivFilaBotones(1)
+    document.body.appendChild(divFila);
+
+    divFila = crearUltimaFila()
+    document.body.appendChild(divFila);
+
+}
+
 const main = () => {
+    construirCalculadora();
 
     for(var i=0; i<10; i++){
         const but = document.getElementById("but"+i)
@@ -79,13 +173,16 @@ const main = () => {
         const but = document.getElementById("but"+ op)
         but.onclick = operacionOnClickNoObstrusivo;
     }
+    cambiarColorNumero5()
 }
 
-const main2 = () => {
+window.addEventListener("load", main);
+
+/*const main2 = () => {
     console.log("Segunda parte del main")
 }
 
 //window.onload = main;
 
 window.addEventListener("load", main);
-window.addEventListener("load", main2);
+window.addEventListener("load", main2);*/
