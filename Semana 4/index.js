@@ -7,7 +7,7 @@
 /*function numeroOnClick(numero){
     const inputNumeros = document.getElementById("txt_numeros")
     inputNumeros.value = numero
-}*/
+}**/
 
 var numeroIngresado;
 var enOperacion = false;
