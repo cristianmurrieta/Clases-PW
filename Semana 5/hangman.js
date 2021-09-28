@@ -1,7 +1,12 @@
 const refranes = [
     "CAMARON QUE SE DUERME SE LO LLEVA LA CORRIENTE",
     "A CABALLO REGALADO NO SE LE MIRA EL DIENTE",
-    "QUIEN A HIERRO MATA A HIERRO MUERE"]
+    "QUIEN A HIERRO MATA A HIERRO MUERE"
+]
+
+var refran = "";
+var refranOculto = ""
+let cont = 0
 
 const elegirRefran = () => {
     const pos = Math.round(Math.random() * 2);
@@ -17,20 +22,54 @@ const ocultarRefran = (refran) => {
             refranOcultado += caracter
         }
     }
-    return refranOcultado
+    return refranOcultado; 
 }
 
 const cargarRefran = (refran) => {
     //const divRefran = document.getElementById("refran")
     const divRefran = document.querySelector("#refran")
-    divRefran.innerText = refran
+    divRefran.innerHTML = refran
+}
+
+const buscarLetraRefran = (letra, refran, refranOculto) => {
+    let nuevoRefranOculto = ""
+    for (let i= 0;i<refran.length; i++ ){
+        if (letra == refran[i]){
+            //Se encuentra la letra
+            nuevoRefranOculto += refran[i]
+        }else{
+            nuevoRefranOculto += refranOculto[i]
+        }
+    }
+    return nuevoRefranOculto;
+}
+
+const cargarNuevaImagen = (contador) => {
+    let img = document.querySelector("#imagen")
+    img.setAttribute("src", "/Semana 5/Hangman/Hangman-" + contador + ".png")
+}
+
+const letraInputOnKeypress = (evt) =>{
+    const letraIngresada = evt.key.toUpperCase()
+    const nuevoRefranOculto = buscarLetraRefran(letraIngresada, refran, refranOculto)
+    if(refranOculto == nuevoRefranOculto){
+        //No descubrio una nueva letra
+        cargarNuevaImagen(++cont)
+        console.log("Deberia mostrar una nueva imagen")
+    }else {
+        refranOculto = nuevoRefranOculto
+        cargarRefran(refranOculto)
+    }
 }
 
 const main = () => {
-    const refran = elegirRefran()
-    const refranOculto = ocultarRefran(refran);
+    refran = elegirRefran()
+    refranOculto = ocultarRefran(refran);
 
     cargarRefran(refranOculto)
+
+    let inputLetras = document.querySelector("#letras")
+    inputLetras.addEventListener("keypress",    letraInputOnKeypress)
 }
 
 window.addEventListener("load", main)
