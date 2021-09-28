@@ -49,16 +49,44 @@ const cargarNuevaImagen = (contador) => {
     img.setAttribute("src", "/Semana 5/Hangman/Hangman-" + contador + ".png")
 }
 
+const mostrarAlerta = (gano) => {
+    const divAlert = document.createElement("div")
+    
+    if(gano){
+        divAlert.setAttribute("class", "alert alert-success mt-4")
+        divAlert.innerText = "Ganador!"
+    }
+    else{
+        divAlert.setAttribute("class", "alert alert-danger mt-4")
+        divAlert.innerText = "Perdio :( "
+    }
+
+    const divParteDerecha = document.querySelector("#parte_derecha")
+    divParteDerecha.appendChild(divAlert)
+}
+
 const letraInputOnKeypress = (evt) =>{
     const letraIngresada = evt.key.toUpperCase()
     const nuevoRefranOculto = buscarLetraRefran(letraIngresada, refran, refranOculto)
     if(refranOculto == nuevoRefranOculto){
         //No descubrio una nueva letra
-        cargarNuevaImagen(++cont)
-        console.log("Deberia mostrar una nueva imagen")
+        if(cont < 6 ){
+            cargarNuevaImagen(++cont)
+            console.log("Deberia mostrar una nueva imagen")
+            if(cont == 6){
+                console.log("Perdio")
+                mostrarAlerta(false)
+            }
+        }
     }else {
         refranOculto = nuevoRefranOculto
         cargarRefran(refranOculto)
+
+        if(refranOculto == refran){
+            // Gano
+            mostrarAlerta(true)
+            console.log("Gano")
+        }
     }
 }
 
